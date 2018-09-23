@@ -1,0 +1,449 @@
+*{
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+*:focus {
+  outline: none;
+}
+html{
+  overflow: hidden;
+}
+
+body{
+  font-size: 13px !important;
+}
+
+h1 {
+  font-size: 24px;
+}
+
+h6 {
+  display: inline;
+}
+
+:global {
+  @import 'react-datepicker/dist/react-datepicker.css' /* external style without prefixing */
+}
+
+#title-bar {
+  -webkit-app-region: drag;
+  height: 24px;
+  background-color: darkviolet;
+  padding: none;
+  margin: 0px;
+}
+
+#title-bar-btns {
+ -webkit-app-region: no-drag;
+ position: relative;
+ top: 4px;
+ right: 6px;
+}
+
+#title-bar-btns #close-btn {
+  background-color: #E96E4C;
+  border-radius: 50%;
+  border: none;
+  margin-right: 8px;
+  opacity: 100;
+  height: 14px;
+  width: 14px;
+}
+
+#title-bar-btns #min-btn {
+  background-color: #E6A935;
+  border-radius: 50%;
+  border: none;
+  margin-right: 8px;
+  opacity: 100;
+  height: 14px;
+  width: 14px;
+}
+
+#title-bar-btns #max-btn {
+  background-color: #85C33D;
+  border-radius: 50%;
+  border: none;
+  margin-right: 8px;
+  opacity: 100;
+  height: 14px;
+  width: 14px;
+}
+
+#title-bar-btns #refresh {
+  color: white;
+  background-color: darkviolet;
+  border-radius: 50%;
+  border: none;
+  margin-right: 8px;
+  opacity: 100;
+  height: 14px;
+  width: 14px;
+}
+
+.wrapper {
+  display: grid;
+  grid-gap: 10px;
+  grid-template-columns: 80% auto;
+  grid-template-rows: 50% 50%;
+  padding-left: 15px;
+  padding-right: 15px;
+  padding-bottom: 15px;
+  /* border: 3px solid black; */
+  margin-top: -20px;
+  height:94vh!important;
+}
+
+.sideWrapper {
+  display: grid;
+  grid-gap: 10px;
+  grid-template-rows: 50% 50%;
+  height:92vh;
+}
+
+.a{
+  text-align: center;
+  background: #EAD2AC;
+  border-radius: 15px;
+}
+
+.c{
+  text-align: center;
+  background: #EAD2AC;
+  border-radius: 15px;
+}
+
+.yellow{
+  text-align: center;
+  background: rgba(205,192,23,0.59);
+  border-radius: 15px;
+}
+
+.red{
+  text-align: center;
+  background: rgba(208,2,27,0.85);
+  border-radius: 15px;
+}
+
+.green{
+  text-align: center;
+  background: rgba(74,141,0,0.60);
+  border-radius: 15px;
+}
+.grey{
+  text-align: center;
+  background: #EAD2AC;
+  border-radius: 15px;
+}
+
+.b{
+  text-align: center;
+  background: #EAD2AC;
+  border-radius: 15px;
+}
+
+.leftWrapper {
+  display: grid;
+  height:93vh;
+  max-height: 93vh;
+}
+
+.middle{
+  text-align: center;
+}
+
+.box {
+  color: black;
+  background: #FAFAFA;
+  border: 1px solid #ADADAD;
+  box-shadow: 0 2px 4px 0 rgba(0,0,0,0.50);
+  padding: 20px;
+}
+
+.box input{
+  left: 200px;
+  position: absolute;
+}
+
+.animalDet {
+  grid-row: 2/1 span;
+}
+
+.cal {
+  align-content: stretch;
+  grid-row: 1/2 span;
+  height: 93vh;
+  overflow-y: scroll;
+}
+
+.item3 {
+  grid-row: 1/1 span;
+}
+
+.weekdays{
+  margin: 0;
+  padding: 13px 0;
+}
+
+.weekdays li{
+  display: inline-block;
+  width: 14%;
+  color: #666;
+  text-align: center;
+}
+
+.search {
+  grid-row: 1/1 span;
+  height: 46vh;
+  overflow-y: scroll;
+  padding-bottom: 20px;
+}
+
+.bookingbutton{
+  float: right;
+}
+.selected{
+  background-color: royalblue;
+  color: #FAFAFA;
+  outline:none;
+  border-radius: 8px;
+  padding-left: 10px;
+  padding-top: 6px;
+  padding-bottom: 6px;
+  transition-duration: 0.3s;
+}
+
+.center{
+  text-align: center;
+  white-space: pre-wrap;
+}
+
+.searchItem {
+  border-radius: 8px;
+  padding-left: 10px;
+  padding-top: 6px;
+  padding-bottom: 6px;
+  transition-duration: 0.3s;
+}
+
+.searchItem:hover {
+  background-color: #D7E8F7;
+  color: #299CF5;
+}
+
+.calendarSwitch {
+  background: #EFF7FE;
+  box-shadow: 0 2px 4px 0 rgba(0,0,0,0.25);
+  border: none;
+  border-radius: 8px;
+  color: #299CF5;
+  letter-spacing: -0.4px;
+  transition-duration: 0.4s;
+  width: 80px;
+  height: 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  margin: 0px 35px;
+}
+
+.calendarSwitch:hover {
+  background-color: royalblue;
+  color: #FAFAFA;
+}
+
+.item4 {
+  grid-row: 2/1 span;
+}
+
+.profileButton {
+  background: #D7E8F7;
+  color: #299CF5;
+  box-shadow: 0 2px 4px 0 rgba(0,0,0,0.25);
+  border: none;
+  border-radius: 8px;
+  transition-duration: 0.4s;
+  padding: 8px 17px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  margin: 0px 5px;
+}
+
+.profileButton:hover {
+  background-color: royalblue;
+  color: #FAFAFA;
+}
+
+.profileButtonPanel {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.calendarSwitch {
+  background: #EFF7FE;
+  box-shadow: 0 2px 4px 0 rgba(0,0,0,0.25);
+  border: none;
+  border-radius: 8px;
+  color: #299CF5;
+  letter-spacing: -0.4px;
+  transition-duration: 0.4s;
+  width: 80px;
+  height: 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  margin: 0px 35px;
+}
+
+.calendarSwitch:hover {
+  background-color: royalblue;
+  color: #FAFAFA;
+}
+
+.listView {
+  margin-top: 20px;
+  border: none;
+  padding: 10px;
+}
+
+.listViewRow {
+  height: 30px;
+  width: 100%;
+}
+
+.listViewRow:hover {
+  background-color: #FAFAFA;
+}
+
+#dataGrid div.react-grid-Row--even .react-grid-Cell {
+ background-color: #CCC;
+}
+
+.datePicker {
+  background: #FFFFFF;
+  border: 1px solid #EBEBEB;
+  box-shadow: 0 2px 4px 0 rgba(0,0,0,0.29);
+  border-radius: 100px;
+  color: #4A4A4A;
+  padding: 5px 10px;
+  letter-spacing: -0.4px;
+  display: inline-block;
+  width: 300px;
+  text-align: center;
+}
+
+.dateButton {
+  background: #D7E8F7;
+  color: #299CF5;
+
+  box-shadow: 0 2px 4px 0 rgba(0,0,0,0.25);
+  border: none;
+  border-radius: 100px;
+  transition-duration: 0.4s;
+  padding: 11px 7px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  margin: 0px 15px;
+}
+
+.dateButton:hover {
+  background-color: royalblue;
+  color: #FAFAFA;
+}
+
+.dateButton:active{
+  transform: translateY(2px);
+  box-shadow: 0 1px #666;
+}
+.searchClose {
+  position: absolute;
+  margin-top: -31px;
+  right: 50px;
+}
+
+.checkButton {
+  background: #D7E8F7;
+  color: #299CF5;
+  box-shadow: 0 2px 4px 0 rgba(0,0,0,0.25);
+  border: none;
+  border-radius: 8px;
+  transition-duration: 0.4s;
+  padding: 8px 17px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  margin: 0px 5px;
+  display: inline-block;
+  width: 100px;
+}
+
+.checkButton:hover {
+  background-color: royalblue;
+  color: #FAFAFA;
+}
+
+#paymentInput input {
+    left: 120px;
+    position: absolute;
+}
+
+#submitInput input {
+    position: inherit;
+    margin: 10px 0px;
+}
+
+#editInput input {
+    position: initial;
+    margin: 10px 0px;
+}
+
+#submitInput button {
+    position: inherit;
+    margin: 10px 0px;
+}
+
+#datePicker input {
+    left: 0px;
+    position: inherit;
+    margin: 10px 0px;
+}
+
+.right {
+  position: absolute;
+  left: 580px;
+}
+
+.key {
+  width: 150px;
+  display: inline-block;
+  text-align: left;
+}
+
+.printButton {
+  background: #D7E8F7;
+  color: #299CF5;
+  box-shadow: 0 2px 4px 0 rgba(0,0,0,0.25);
+  border: none;
+  border-radius: 8px;
+  transition-duration: 0.4s;
+  padding: 8px 17px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  margin: 5px 0px;
+}
+
+#Help span{
+  left: 330px;
+  position: sticky;
+}
+
+#Help li{
+  margin-left: 20px;
+  position: sticky;
+}

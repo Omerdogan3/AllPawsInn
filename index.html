@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>AllPawsInn</title>
+
+	<link rel="stylesheet" href="./src/css/main.css">
+	<link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap.min.css">
+	<link rel="stylesheet" href="./node_modules/react-resizable/css/styles.css">
+	<link rel="stylesheet" href="./node_modules/react-datepicker/dist/react-datepicker.css">
+	<link rel="stylesheet" href="./node_modules/react-grid-layout/css/styles.css">
+	<link rel="stylesheet" href="./src/css/Navbar.css">
+	<script>
+		require('babel-register');
+		window.$ = window.jQuery = require('./node_modules/jquery/dist/jquery.min');
+		require('./src/app');
+		require('./node_modules/bootstrap/dist/js/bootstrap.min')
+	</script>
+
+</head>
+<body>
+	<div style="height:20px;background-color:royalblue;"id = "title-bar">
+		<span style="float:right;" id="title-bar-btns">
+			 <button id="refresh"><span style="color:white" class ="glyphicon glyphicon-refresh refresh-icon" aria-hidden="true"></span></button>
+			 <button id="min-btn"><span style="color:white" class ="glyphicon glyphicon-minus minimize-icon" aria-hidden="true"></span></button>
+			 <button id="max-btn"><span style="color:white" class ="glyphicon glyphicon-fullscreen maximize-icon" aria-hidden="true"></span></button>
+			 <button id="close-btn"><span style="color:white" class ="glyphicon glyphicon-remove close-icon" aria-hidden="true"></span></button>
+		</span>
+	</div>
+	<div id = "app"></div>
+	<script src = "default.js"></script>
+
+</body>
+
+</html>
