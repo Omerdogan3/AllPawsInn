@@ -204,6 +204,7 @@ h6 {
 .bookingbutton{
   float: right;
 }
+
 .selected{
   background-color: royalblue;
   color: #FAFAFA;

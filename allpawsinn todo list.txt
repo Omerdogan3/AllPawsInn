@@ -42,11 +42,17 @@ List of things to be fixed, or implemented on the application:
    * Adding note boxes for animal and food components (where user can enter specific notes for each dog and it's food) on New Client page
    
    * Making the Animal Details (called "Full Profile" in the program) editable (should be talked with All Paws Inn first)
-   
-   * Adding 'Town' input field to New Client, and 'Age' to Animal Details and Add Dog pages
-   
+      
    * Making the boarding reservations printable
    
    * Adding Alerts/Notifications side screens to the home page (screenshots can be found in the Screenshots/Prototypes folder)
 
    * Help page should be updated after each resolved issue
+
+
+
+
+
+
+   DONE
+  * Adding 'Town' input field to New Client, and 'Age' to Animal Details and Add Dog pages

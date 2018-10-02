@@ -223,6 +223,7 @@ newVet(vet_details).then(result=>{
 							<option value = "No">No</option>
 							</select>
 						</div>
+						<div className="col-sm-6"><b>Town</b><input name = "town" type = "number" /><br></br></div>
 					</div>
 				</div>
 				<b><h4>Animal</h4></b>
@@ -246,6 +247,7 @@ newVet(vet_details).then(result=>{
 					</div>
 					<div className="row">
 						<div className="col-sm-6"><b>Discount</b><input name = "discount" type = "text" /><br></br></div>
+						<div className="col-sm-6"><b>Age</b><input name = "age" type = "number" /><br></br></div>
 					</div>
 				</div>
 				<b><h4>Vet Details</h4></b>
