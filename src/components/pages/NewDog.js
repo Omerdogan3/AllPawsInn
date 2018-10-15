@@ -12,9 +12,9 @@ async function insertAnimal(animal){
 	let ClientID = animal.ClientID
 	if (ClientID[0])
 		ClientID = ClientID[0]
-
-	let qr = `INSERT INTO Animals (ClientID,TypeID,AnimalName,Breed,Sex,Food1TypeName,Food1Freq,Food1Amount,MedicalConditions)
-	VALUES ('${ClientID}','2','${animal.AnimalName}','${animal.AnimalBreed}','${animal.AnimalSex}','${animal.FoodType}','${animal.FoodFreq}','${animal.FoodAmount}','${animal.MedicalDetails}')`
+	// console.log(animal)
+	let qr = `INSERT INTO Animals (ClientID,TypeID,AnimalName,Breed,Sex,Food1TypeName,Food1Freq,Food1Amount,MedicalConditions,Age)
+	VALUES ('${ClientID}','2','${animal.AnimalName}','${animal.AnimalBreed}','${animal.AnimalSex}','${animal.FoodType}','${animal.FoodFreq}','${animal.FoodAmount}','${animal.MedicalDetails}','${animal.Age}')`
 
 	await pool.request()
 	.query(qr)
@@ -84,6 +84,7 @@ export default class NewDog extends React.Component {
 						</div>
 						<div className="row">
 							<div className="col-sm-6"><b>Discount</b><input name = "Discount" type = "text" onChange = {this.handleChange} value = {this.state.Discount}/><br></br></div>
+							<div className="col-sm-6"><b>Age</b><input name = "Age" type = "text" onChange = {this.handleChange} value = {this.state.Age}/><br></br></div>
 						</div>
 					</div>
 					<br></br>

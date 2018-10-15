@@ -71,8 +71,9 @@ async function selectAnimal(animal,clientID){
 async function newClient(client,vetId){
 	let vetID = vetId;
 	let pool = await sql.connect(sqlConfig)
-	let qr = `INSERT INTO ClientDetails (FirstName,LastName,Address1,Email,PostcodeZIP,TelHome,TelWork,VetSurgeryId)
-	VALUES ('${client.FirstName}','${client.LastName}','${client.Adress}','${client.Email}','${client.Zip}','${client.Contact_home}','${client.Contact_work}','${vetId}')`
+	// console.log(client)
+	let qr = `INSERT INTO ClientDetails (FirstName,LastName,Address1,Email,PostcodeZIP,TelHome,TelWork,VetSurgeryId,Town)
+	VALUES ('${client.FirstName}','${client.LastName}','${client.Adress}','${client.Email}','${client.Zip}','${client.Contact_home}','${client.Contact_work}','${vetId}','${client.Town}')`
 	//if err s
 	await pool.request().query(qr)
 	sql.close()
@@ -85,8 +86,9 @@ async function newAnimal(animal,clientID){
 	let clientid=clientID
 	console.dir(clientid)
 	let pool = await sql.connect(sqlConfig)
-	let qr = `INSERT INTO Animals (ClientID,TypeID,AnimalName,Breed,Sex,Food1TypeName,Food1Freq,Food1Amount,MedicalConditions)
-	VALUES ('${clientID}','2','${animal.AnimalName}','${animal.AnimalBreed}','${animal.AnimalSex}','${animal.FoodType}','${animal.FoodFreq}','${animal.FoodAmount}','${animal.MedicalDetails}')`
+	console.log(animal)
+	let qr = `INSERT INTO Animals (ClientID,TypeID,AnimalName,Breed,Sex,Food1TypeName,Food1Freq,Food1Amount,MedicalConditions,Age)
+	VALUES ('${clientID}','2','${animal.AnimalName}','${animal.AnimalBreed}','${animal.AnimalSex}','${animal.FoodType}','${animal.FoodFreq}','${animal.FoodAmount}','${animal.MedicalDetails}','${animal.Age}')`
 	//if err s
 	await pool.request().query(qr)
 	sql.close()
@@ -145,27 +147,29 @@ export default class NewBooking extends React.Component {
 			Zip : event.target[4].value,
 			Contact_home :event.target[5].value,
 			Contact_work :event.target[6].value,
-			Allow_mail:event.target[7].value
+			Allow_mail:event.target[7].value,
+			Town: event.target[8].value
 		}
 	let animal = {
-			AnimalName : event.target[8].value,
-			AnimalBreed : event.target[9].value,
-			AnimalSex : event.target[10].value,
-			KennelUnit : event.target[11].value,
-			FoodType: event.target[12].value,
-			FoodFreq: event.target[13].value,
-			FoodAmount: event.target[14].value,
-			MedicalDetails: event.target[15].value,
-			Discount:event.target[16].value,
+			AnimalName : event.target[9].value,
+			AnimalBreed : event.target[10].value,
+			AnimalSex : event.target[11].value,
+			KennelUnit : event.target[12].value,
+			FoodType: event.target[13].value,
+			FoodFreq: event.target[14].value,
+			FoodAmount: event.target[15].value,
+			MedicalDetails: event.target[16].value,
+			Discount:event.target[17].value,
+			Age: event.target[18].value
 		}
 
 		let vet_details = {
-			Practice_name : event.target[17].value,
-			Vet_name : event.target[18].value,
-			Contact : event.target[19].value,
-			Address : event.target[20].value,
-			Town : event.target[21].value,
-			Email : event.target[22].value,
+			Practice_name : event.target[19].value,
+			Vet_name : event.target[20].value,
+			Contact : event.target[21].value,
+			Address : event.target[22].value,
+			Town : event.target[23].value,
+			Email : event.target[24].value,
 		}
 	let tempClient,tempAnimal,tempVet;
 	let merged;
@@ -223,7 +227,7 @@ newVet(vet_details).then(result=>{
 							<option value = "No">No</option>
 							</select>
 						</div>
-						<div className="col-sm-6"><b>Town</b><input name = "town" type = "number" /><br></br></div>
+						<div className="col-sm-6"><b>Town</b><input name = "town" type = "text" /><br></br></div>
 					</div>
 				</div>
 				<b><h4>Animal</h4></b>

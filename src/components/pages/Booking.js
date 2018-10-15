@@ -217,7 +217,7 @@ export default class Booking extends React.Component {
 		//value wont change when a new reservation is prompted while already on the booking pag
 		let dropdown = [];
 		for (let i = 0; i < book.length; i++) {
-		    dropdown.push(<option key={i} value={i}>{`${book[i].FirstName} ${book[i].LastName} - ${book[i].AnimalName}`}</option>);
+			dropdown.push(<option key={i} value={i}>{`${book[i].FirstName} ${book[i].LastName} - ${book[i].AnimalName}`}</option>);
 		}
 
 		return(
