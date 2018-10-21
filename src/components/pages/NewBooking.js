@@ -130,7 +130,8 @@ export default class NewBooking extends React.Component {
 	constructor(props) {
 		super(props)
 		this.state = {
-			id : this.props.id_object
+			id : this.props.id_object,
+			fillRequired: false
 		}
 		this.handleSubmit = this.handleSubmit.bind(this)
 	}
@@ -138,19 +139,18 @@ export default class NewBooking extends React.Component {
 
 	handleSubmit(event){
 		event.preventDefault();
-
 		let client_details = {
 			FirstName : event.target[0].value,
 			LastName : event.target[1].value,
 			Adress : event.target[2].value,
 			Email : event.target[3].value,
 			Zip : event.target[4].value,
-			Contact_home :event.target[5].value,
-			Contact_work :event.target[6].value,
-			Allow_mail:event.target[7].value,
+			Contact_home : event.target[5].value,
+			Contact_work : event.target[6].value,
+			Allow_mail: event.target[7].value,
 			Town: event.target[8].value
 		}
-	let animal = {
+		let animal = {
 			AnimalName : event.target[9].value,
 			AnimalBreed : event.target[10].value,
 			AnimalSex : event.target[11].value,
@@ -159,10 +159,9 @@ export default class NewBooking extends React.Component {
 			FoodFreq: event.target[14].value,
 			FoodAmount: event.target[15].value,
 			MedicalDetails: event.target[16].value,
-			Discount:event.target[17].value,
+			Discount: event.target[17].value,
 			Age: event.target[18].value
 		}
-
 		let vet_details = {
 			Practice_name : event.target[19].value,
 			Vet_name : event.target[20].value,
@@ -173,26 +172,48 @@ export default class NewBooking extends React.Component {
 		}
 	let tempClient,tempAnimal,tempVet;
 	let merged;
-newVet(vet_details).then(result=>{
-	getVet(vet_details).then(VetObject =>{
-		tempVet=VetObject
-		newClient(client_details,VetObject.ID).then(VetID => {
-			selectClient(client_details,VetID).then(clientObj => {
-				tempClient=clientObj;
 
-				newAnimal(animal,clientObj.ClientID).then(clientID =>{
-					selectAnimal(animal,clientID).then(animalObj =>{
-						tempAnimal=animalObj;
-						merged = Object.assign({}, tempClient, tempAnimal);
-						this.props.dogs.push(merged)
+		if(
+			client_details.FirstName === "" || 
+			client_details.LastName === "" ||
+			client_details.Adress === "" ||
+			client_details.Email === "" ||
+			animal.AnimalName === "" ||
+			animal.AnimalBreed === "" ||
+			vet_details.Practice_name === "" ||
+			vet_details.Vet_name === "" 
+		){
+			this.setState({
+				fillRequired: true
+			})
+		}else{
+			newVet(vet_details).then(result=>{
+				getVet(vet_details).then(VetObject =>{
+					tempVet=VetObject
+					newClient(client_details,VetObject.ID).then(VetID => {
+						selectClient(client_details,VetID).then(clientObj => {
+							tempClient=clientObj;
+			
+							newAnimal(animal,clientObj.ClientID).then(clientID =>{
+								selectAnimal(animal,clientID).then(animalObj =>{
+									tempAnimal=animalObj;
+									merged = Object.assign({}, tempClient, tempAnimal);
+									this.props.dogs.push(merged)
+								})
+							})
+						})
 					})
 				})
 			})
-		})
-	})
-})
+			
+					this.props.updateScreen("home")
+			
 
-		this.props.updateScreen("home")
+
+
+		}
+
+
 
 	}
 
@@ -270,9 +291,15 @@ newVet(vet_details).then(result=>{
 					</div>
 				</div>
 				<br></br>
+
+				{
+					this.state.fillRequired && <div><p>Please Fill All Required Places</p></div> 
+				}
+
 				<div id="submitInput">
 					<input className = "profileButton" type = "Submit" value = "Submit"/>
 				</div>
+				
 
 				</form>
 			</div>

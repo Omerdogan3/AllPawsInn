@@ -82,6 +82,10 @@ export default class List extends React.Component {
 			return "Check-Out"
 	}
 
+	getPrint(obj){
+		this.props.print(obj)
+	}
+
 	render(){
 		let curList = this.props.current.sort(function(a,b){return a.DateIn < b.DateIn})
 		// TODO: Add first-to-last & last-to-first switch
@@ -100,7 +104,7 @@ export default class List extends React.Component {
 					<tbody>
 					{
 					curList.map(obj => //arrow function instead
-						<tr style={{height: '50px'}} key = {obj.BookingID}>
+						<tr style={{height: '50px'}} key = {obj.BookingID} onClick ={() => {this.getPrint(obj)}}>
 								<td>{obj.FirstName} {obj.LastName}</td>
 								<td>{obj.AnimalName}</td>
 								<td>{parseDate(obj.DateIn)}</td>

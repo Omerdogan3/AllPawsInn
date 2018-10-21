@@ -6,7 +6,6 @@ import ReactDataGrid from 'react-data-grid';
 let rows = [];
 const rowGetter = rowNumber => rows[rowNumber];
 
-
 async function updateBookingQuery(bookingObject){
 	const sqlConfig = require('../../../js/sqlconfig')
 	const sql = require('mssql')
@@ -46,8 +45,8 @@ export default class Grid extends React.Component {
 		}
 
 		this._columns = [
-			{ key: 'client', name: 'Client' },
-			{ key: 'dog', name: 'Dog'},
+			{ key: 'client', name: 'Client', resizable: 'true'},
+			{ key: 'dog', name: 'Dog', resizable: 'true'},
 			{ key: 'm', name: 'Monday'},
 			{ key: 't', name: 'Tuesday' },
 			{ key: 'w', name: 'Wednesday' },
@@ -55,7 +54,8 @@ export default class Grid extends React.Component {
 			{ key: 'f', name: 'Friday' },
 			{ key: 's', name: 'Saturday'},
 			{ key: 'total', name: 'Check-Out'},
-			{key: 'print', name: 'Print'}
+			{key: 'print', width: 30},
+			{key: 'remove', width: 30}
 		];
 
 		this.createRows = this.createRows.bind(this)
@@ -66,6 +66,28 @@ export default class Grid extends React.Component {
 		this.getCellActions = this.getCellActions.bind(this)
 		this.getPayment = this.getPayment.bind(this)
 		this.getPrint = this.getPrint.bind(this)
+	}
+
+	async removeBooking(bookingObject){
+		const sqlConfig = require('../../../js/sqlconfig')
+		const sql = require('mssql')
+		let pool = await sql.connect(sqlConfig)
+	
+		let bookingId = parseInt(bookingObject.BookingID)
+	
+		let queryString = "DELETE FROM dbo.BookingObjects WHERE dbo.BookingObjects.BookingID = " + bookingId
+	
+		let result = await pool.request()
+			 .query(queryString)
+			 .catch((err)=>{
+				// console.log("Test",err)
+				alert("Error")
+			 })
+			 .then(()=>{
+					this.deleteRows(bookingId);
+					this.props.updateScreen("home");
+				})
+		sql.close()
 	}
 
 	createRows(booking) {
@@ -428,17 +450,38 @@ export default class Grid extends React.Component {
 	          callback: () => { this.getPrint(row.booking)}
 	        }
 	      ];
+			}
+			if (column.key === 'remove') {
+	      return [
+	        {
+	          icon: 'glyphicon glyphicon-trash',
+	          callback: () => { this.removeBooking(row.booking) }
+	        }
+	      ];
     	}
   	}
 
   	getPayment(obj){
   		this.props.payment(obj)
-  		//updateStatusQuery(obj)
   	}
 
   	getPrint(obj){
   		this.props.print(obj)
-	}
+		}
+
+		getList(curList){
+			// console.log(curList)
+			return curList.map(obj =>
+				<div key = {obj.BookingID}>
+					{this.createRows(obj)}
+				</div>
+			)
+		}
+
+		deleteRows(bookingId){
+			let rows = this._rows.map(el => el.booking).slice()
+			this._rows = rows.filter(row => row.BookingID !== bookingId)
+		}
 
 	render(){
 		this.emptyRows()
@@ -447,13 +490,9 @@ export default class Grid extends React.Component {
 		// TODO: Add first-to-last & last-to-first switch
 		return(
 			<div>
-				{curList.map(obj => //arrow function instead
-					<div key = {obj.BookingID}>
-						{this.createRows(obj)}
-					</div>
-					)
-				}
+				{this.getList(curList)}
 				{this.setRows()}
+
 				<div  id="dataGrid" style={{marginTop: '20px'}} >
 					<ReactDataGrid
 						ref={ node => this.grid = node }
