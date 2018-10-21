@@ -138,6 +138,7 @@ export default class NewBooking extends React.Component {
 
 	handleSubmit(event){
 		event.preventDefault();
+
 		let client_details = {
 			FirstName : event.target[0].value,
 			LastName : event.target[1].value,
@@ -149,7 +150,7 @@ export default class NewBooking extends React.Component {
 			Allow_mail:event.target[7].value,
 			Town: event.target[8].value
 		}
-		let animal = {
+	let animal = {
 			AnimalName : event.target[9].value,
 			AnimalBreed : event.target[10].value,
 			AnimalSex : event.target[11].value,
@@ -161,6 +162,7 @@ export default class NewBooking extends React.Component {
 			Discount:event.target[17].value,
 			Age: event.target[18].value
 		}
+
 		let vet_details = {
 			Practice_name : event.target[19].value,
 			Vet_name : event.target[20].value,
