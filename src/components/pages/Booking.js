@@ -2,22 +2,28 @@
 // validate user inputs before querying
 // replace arbitrary kennel number
 'use babel';
-import 'react-dates/initialize';
-
+// import 'react-dates/initialize';
 import React, { Component } from 'react';
-import DatePicker from 'react-datepicker';
+// import DatePicker from 'react-datepicker';
+import DayPicker from 'react-day-picker';
 import {SingleDatePicker} from 'react-dates';
 import moment from 'moment';
 import Calendar from 'react-input-calendar';
+
+import MomentLocaleUtils, {
+  formatDate,
+  parseDate,
+} from 'react-day-picker/moment';
+
+
 const booking_lib = require('../../js/bookinglib');
 const oneDay = 24*60*60*1000;
 
 function create_date(datestr){
-	let dt_in = datestr.split('-')
 	let buffer = new Date(Date.now())
-	buffer.setMonth(dt_in[0] - 1)
-	buffer.setDate(dt_in[1])
-	buffer.setFullYear(dt_in[2])
+	buffer.setMonth(1)
+	buffer.setDate(25)
+	buffer.setFullYear(2018)
 	return buffer;
 }
 
@@ -45,7 +51,7 @@ export default class Booking extends React.Component {
 			animal: this.props.animal,
 			book : [],
 			startDate: moment(),
-			endDate: moment().add(1,'weeks').startOf('isoWeek'),
+			endDate: moment().add(1,'weeks'),
 			date: moment(),
       focused: null
 		}
@@ -76,7 +82,7 @@ export default class Booking extends React.Component {
 		this.handleEndDateChange = this.handleEndDateChange.bind(this)
 		this.onFocusChange = this.onFocusChange.bind(this);
 		this.onDateChange = this.onDateChange.bind(this);
-
+		this.handleDayClick = this.handleDayClick.bind(this);
 	}
 
 	onFocusChange() {
@@ -89,20 +95,33 @@ export default class Booking extends React.Component {
   }
 
 	handleStartDateChange(date) {
-		if(date._d <= this.state.endDate){
-			this.state.book[this.state.dropdown_pick].DateIn = date._d
+		console.log(form_date(date) + " " + "00:00:00.000")
+		var a = moment(date)
+		var b = moment(this.state.endDate)
+		var noOfDays = a.diff(new Date(),'days')
+		// console.log(noOfDays)
+		// if(noOfDays < 0){
+		// 	console.log("invalid!")
+		// }
+
+
+		if(a.diff(b) <= 0){
+			this.state.book[this.state.dropdown_pick].DateIn = a
 			this.state.book[this.state.dropdown_pick].NoDays =  (Math.ceil((this.state.book[this.state.dropdown_pick].DateOut-this.state.book[this.state.dropdown_pick].DateIn)/oneDay)) || 1
-		    this.setState({
+			this.setState({
 		        startDate: date
 		    });
     	}
     }
 
     handleEndDateChange(date) {
-    	if(date._d >= this.state.startDate){
+			var a = moment(date)
+			var b = moment(this.state.endDate)
+    	if(a.diff(b) > 0){
 			this.state.book[this.state.dropdown_pick].DateOut = date._d
 			this.state.book[this.state.dropdown_pick].NoDays =  (Math.ceil((this.state.book[this.state.dropdown_pick].DateOut-this.state.book[this.state.dropdown_pick].DateIn)/oneDay)) || 1
-	    	this.setState({
+				
+				this.setState({
             endDate: date
         });
     	}
@@ -121,6 +140,14 @@ export default class Booking extends React.Component {
 		else
 			this.props.updateScreen("home")
 	}
+
+
+	handleDayClick(day) {
+		console.log(day)
+    this.setState({
+      selectedDay: day,
+    });
+  }
 
 	handleSubmit(event){
 		event.preventDefault();
@@ -242,34 +269,28 @@ export default class Booking extends React.Component {
 				<select onChange = {this.dropdownSelected} label="Multiple Select" multiple>
 					{dropdown}
 				</select><br></br>
-				<b>Date In</b><br></br>
 				
-				<div id="datePicker">
-					{
-				// 		<DatePicker
-			  //           selected={this.state.startDate}
-			  //           onChange={this.handleStartDateChange}
-			  //      />
-			  //      </div>
-			  //      <br></br>
-				// <b>Date Out</b><br></br>
-				// <div id="datePicker">
-				// <DatePicker
-			  //           selected={this.state.endDate}
-			  //           onChange={this.handleEndDateChange}
-				// 			/>
-
-				<SingleDatePicker
-					date={this.state.date}
-					onDateChange={this.onDateChange}
-					onFocusChange={this.onFocusChange}
-					focused = {this.state.focused}
-				/>
-
-
-						}
-			        </div>
-				<div className = "box">
+				<div className="dateSelector">
+					<div id="dateIn">
+						<b>Date In</b><br/>
+						<DayPicker
+							showWeekNumbers
+							todayButton="Go to Today"
+							onDayClick={this.handleStartDateChange}
+						/>
+					</div>
+					<div id="dateOut">
+						<b>Date Out</b><br/>
+						<DayPicker
+							showWeekNumbers
+							todayButton="Go to Today"
+							onDayClick={this.handleEndDateChange}
+						/>
+					</div>
+				</div>
+	
+			
+			<div className = "box">
 					<b>Client Name</b><input disabled type = "text" value = {`${book[dropdown_pick].FirstName} ${book[dropdown_pick].LastName}`} />
 					<button className = "bookingbutton" onClick = {this.popBooking}> X </button><br></br>
 					<b>Animal Name</b><input disabled type = "text" value = {book[dropdown_pick].AnimalName}/><br></br>

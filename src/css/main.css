@@ -23,10 +23,6 @@ h6 {
   display: inline;
 }
 
-:global {
-  @import 'react-datepicker/dist/react-datepicker.css' /* external style without prefixing */
-}
-
 #title-bar {
   -webkit-app-region: drag;
   height: 24px;
@@ -423,6 +419,14 @@ h6 {
   width: 150px;
   display: inline-block;
   text-align: left;
+}
+
+/* .dateSelector {
+  height: 225px;
+} */
+
+#dateIn #dateOut {
+  float: left;
 }
 
 .printButton {
