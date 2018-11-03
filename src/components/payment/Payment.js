@@ -32,7 +32,19 @@ export default class Payment extends React.Component {
 	constructor(props) {
 		super(props)
 		this.state = {
-			booking : this.props.booking
+			booking : this.props.booking,
+			dropdown: [],
+			selectedExtras: [],
+			extraServices: [
+				{
+					name: "Nails",
+					price: 5
+				},
+				{
+					name: "Grooming",
+					price: 10
+				}
+			]
 		}
 		this.getSubTotal = this.getSubTotal.bind(this)
 		this.getTotal = this.getTotal.bind(this)
@@ -41,7 +53,26 @@ export default class Payment extends React.Component {
 		this.handlePrintSubmit = this.handlePrintSubmit.bind(this)
 		this.handleSubmit = this.handleSubmit.bind(this)
 		this.handleChange = this.handleChange.bind(this)
+		this.dropdownSelected = this.dropdownSelected.bind(this)
 	}
+
+	componentDidMount(){
+		let dropdown = [<option key={0} value={0}>--</option>];
+		for (let i = 1; i < this.state.extraServices.length+1; i++) {
+		    dropdown.push(<option key={i} value={i}>{this.state.extraServices[i-1].name}</option>);
+		}
+
+		this.setState({
+			dropdown: dropdown
+		})
+	}
+
+	dropdownSelected(event){
+		this.setState({
+			selectedExtras: [...this.state.selectedExtras, this.state.extraServices[event.target.value-1]]
+		})
+	}
+
 
 	getSubTotal(booking){
 		let rate = 0
@@ -167,20 +198,36 @@ export default class Payment extends React.Component {
 								<div className="col-sm-6"><b>Boarding Rate: $ </b>{this.props.booking.BoardingRate !=  null ? this.props.booking.BoardingRate : ''}<br/></div>
 								<div className="col-sm-6"><b>DayCare Rate: $ </b>{this.props.booking.DayCareRate}<br/></div>
 							</div>
-							<hr></hr>
+							<hr/>
 							<div className = "row">
 								<div className="col-sm-6"><b>Sub Total: $ </b>{subToPay}<br/></div>
 								<div className="col-sm-6"><b>Discount: % </b>{!Array.isArray(this.props.booking.Discount) ?  this.props.booking.Discount : this.props.booking.Discount[0]}<br/></div>
 							</div>
-							<hr></hr>
+							<hr/>
 							<div className = "row">
 								<div className="col-sm-6"><b>Net Booking Charges   $</b>{bookingChargesToPay}<br/></div>
 								<div className="col-sm-6"><b>Other Goods: $ </b><input name = "others" type = "text"  onChange = {this.handleChange}/><br/></div>
 							</div>
-							<hr></hr>
+							<hr/>
 							<div className = "row">
 								<div className="col-sm-6"><b>NY State Tax   $</b><input  disabled name = "tax" type = "text" value = {taxToPay}/><br/></div>
 								<div className="col-sm-6"><b>Total To Pay   $</b><input  disabled name = "total" type = "text" value = {totalToPay}/><br/></div>
+							</div>
+							<hr/>
+							<div className = "row">
+								<div className="col-sm-6"><b>Extras   </b>
+								<select onChange = {this.dropdownSelected}>
+									{this.state.dropdown}
+								</select>
+								</div>
+								
+								<div className="col-sm-6">
+								{
+									this.state.selectedExtras.map((el)=>{
+										return <p key={el.name}>{el.name} - ${el.price}</p>
+									})
+								}
+								</div>
 							</div>
 						</div>
 						<br/>

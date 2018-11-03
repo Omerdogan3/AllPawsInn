@@ -13,6 +13,7 @@ import Payment from "./payment/Payment"
 import NewDog from "./pages/NewDog"	
 import Scheduler from "./functions/Scheduler"
 import Help from "./pages/Help"
+import Admin from "./pages/Admin"
 
 export default class Screen extends React.Component {
 	componentWillMount() {
@@ -48,7 +49,9 @@ export default class Screen extends React.Component {
 			return(<Booking kennel_map = {this.props.kennel_map} updateScreen = {this.props.updateScreen} id_object = {this.props.id_object} animal = {this.props.animal} bookings = {this.props.bookings}/>)
 		else if(this.state.screen === "new_booking")
 			return(<NewBooking updateScreen = {this.props.updateScreen} id_object = {this.props.id_object} animal = {this.props.animal} bookings = {this.props.bookings} dogs = {this.props.dogs}/>)
-		else if(this.state.screen === "help")
+		else if(this.state.screen === "admin")
+			return(<Admin updateScreen = {this.props.updateScreen} id_object = {this.props.id_object} animal = {this.props.animal} bookings = {this.props.bookings} dogs = {this.props.dogs}/>)
+			else if(this.state.screen === "help")
 			return <Help/>
 		else
 			return (<Calendar updateScreen = {this.props.updateScreen} kennel_map = {this.props.kennel_map} print = {this.props.print} boz = {this.props.boz} payment = {this.props.payment} currentId = {this.props.currentId} bookings = {this.props.bookings}/>)

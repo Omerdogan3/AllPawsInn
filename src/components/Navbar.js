@@ -31,6 +31,7 @@ export default class Navbar extends React.Component {
 							<li><a style={{cursor: "pointer"}} onClick = {this.props.updateScreen.bind(this, "home")}><span className ="glyphicon glyphicon-th" aria-hidden="true"></span> Dashboard</a></li>
 							<li><a style={{cursor: "pointer"}} onClick = {this.props.updateScreen.bind(this, "new_booking")}>New Client</a></li>
 							<li><a style={{cursor: "pointer"}} onClick = {this.props.updateScreen.bind(this, "scheduler")}>Scheduler</a></li>
+							<li><a style={{cursor: "pointer"}} onClick = {this.props.updateScreen.bind(this, "admin")}>Admin</a></li>
 							<li><a style={{cursor: "pointer"}} onClick = {this.props.updateScreen.bind(this, "help")}>Help</a></li>
 						</ul>
 						<ul className ="nav navbar-nav navbar-right">

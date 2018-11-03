@@ -320,7 +320,7 @@ export default class Booking extends React.Component {
 					
 					
 					<b>Days</b><input disabled name = "NoDays" type = "text" value = {book[dropdown_pick].NoDays}/><br/>
-					<b>Discount Rate   %</b><input disabled name = "Discount" type = "text" value = {book[dropdown_pick].Discount}/><br/>
+					<b>Discount Rate  %</b><input disabled name = "Discount" type = "text" value = {book[dropdown_pick].Discount}/><br/>
 					<b>Boarding Rate   $</b><input name = "BoardingRate" type = "text" value = {book[dropdown_pick].BoardingRate} onChange = {this.handleChange}/><br/>
 					<div id="submitInput">
 						<button className = "profileButton" onClick = {this.handleSubmit}> Submit </button>
