@@ -277,36 +277,42 @@ export default class Booking extends React.Component {
 		}
 
 		return(
-			<div className = "box cal">
+			<div className = "booking-container">
 				<h3>Booking</h3>
 				<select onChange = {this.dropdownSelected} label="Multiple Select" multiple>
 					{dropdown}
 				</select><br/>
 				
-				<div className="dateSelector">
-					<div id="dateIn">
-						<b>Date In</b><br/>
-						<DayPicker
-							showWeekNumbers
-							todayButton="Go to Today"
-							onDayClick={this.handleStartDateChange}
-						/>
-					</div>
-					<div id="dateOut">
-						<b>Date Out</b><br/>
-						<DayPicker
-							showWeekNumbers
-							todayButton="Go to Today"
-							onDayClick={this.handleEndDateChange}
-						/>
-					</div>
-				</div>
+
+				<table>
+					<tbody>
+					<tr>
+						<td>
+							<b>Date In</b><br/>
+							<DayPicker
+								showWeekNumbers
+								todayButton="Go to Today"
+								onDayClick={this.handleStartDateChange}
+							/>
+						</td>
+						<td>
+							<b>Date Out</b><br/>
+							<DayPicker
+								showWeekNumbers
+								todayButton="Go to Today"
+								onDayClick={this.handleEndDateChange}
+							/>
+						</td>
+					</tr>
+				
+					</tbody>
+				</table>
 			
 			{
 				this.state.errorPanel && <div><h3>{this.state.errorContent}</h3></div>
 			}
 			
-			<div className = "box">
+			<div className="box">
 					<b>Client Name</b><input disabled type = "text" value = {`${book[dropdown_pick].FirstName} ${book[dropdown_pick].LastName}`} />
 					<button className = "bookingbutton" onClick = {this.popBooking}> X </button><br/>
 					<b>Animal Name</b><input disabled type = "text" value = {book[dropdown_pick].AnimalName}/><br/>
@@ -315,7 +321,7 @@ export default class Booking extends React.Component {
 					
 					<b>Days</b><input disabled name = "NoDays" type = "text" value = {book[dropdown_pick].NoDays}/><br/>
 					<b>Discount Rate   %</b><input disabled name = "Discount" type = "text" value = {book[dropdown_pick].Discount}/><br/>
-					<div><b>Boarding Rate   $</b><input name = "BoardingRate" type = "text" value = {book[dropdown_pick].BoardingRate} onChange = {this.handleChange}/><br/></div>
+					<b>Boarding Rate   $</b><input name = "BoardingRate" type = "text" value = {book[dropdown_pick].BoardingRate} onChange = {this.handleChange}/><br/>
 					<div id="submitInput">
 						<button className = "profileButton" onClick = {this.handleSubmit}> Submit </button>
 					</div>
