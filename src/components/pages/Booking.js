@@ -53,7 +53,9 @@ export default class Booking extends React.Component {
 			startDate: moment(),
 			endDate: moment().add(1,'weeks'),
 			date: moment(),
-      focused: null
+			focused: null,
+			errorPanel: false,
+			errorContent: ""
 		}
 
 		for(let i = 0; i < this.props.animal.length; i++){
@@ -99,32 +101,46 @@ export default class Booking extends React.Component {
 		var a = moment(date)
 		var b = moment(this.state.endDate)
 		var noOfDays = a.diff(new Date(),'days')
-		// console.log(noOfDays)
-		// if(noOfDays < 0){
-		// 	console.log("invalid!")
-		// }
-
-
-		if(a.diff(b) <= 0){
-			this.state.book[this.state.dropdown_pick].DateIn = a
-			this.state.book[this.state.dropdown_pick].NoDays =  (Math.ceil((this.state.book[this.state.dropdown_pick].DateOut-this.state.book[this.state.dropdown_pick].DateIn)/oneDay)) || 1
+		if(noOfDays < 0){
 			this.setState({
-		        startDate: date
-		    });
-    	}
+				errorPanel: true,
+				errorContent: "You cannot select previous days."
+			})
+		}else{
+			this.setState({
+				errorPanel: false
+			})
+
+			if(a.diff(b) <= 0){
+				this.state.book[this.state.dropdown_pick].DateIn = a
+				this.state.book[this.state.dropdown_pick].NoDays =  (Math.ceil((this.state.book[this.state.dropdown_pick].DateOut-this.state.book[this.state.dropdown_pick].DateIn)/oneDay)) || 1
+				this.setState({
+					startDate: date
+				});
+			}
+		}
+
+
+
     }
 
     handleEndDateChange(date) {
 			var a = moment(date)
 			var b = moment(this.state.endDate)
+			var noOfDays = a.diff(new Date(),'days')
     	if(a.diff(b) > 0){
-			this.state.book[this.state.dropdown_pick].DateOut = date._d
-			this.state.book[this.state.dropdown_pick].NoDays =  (Math.ceil((this.state.book[this.state.dropdown_pick].DateOut-this.state.book[this.state.dropdown_pick].DateIn)/oneDay)) || 1
+			this.state.book[this.state.dropdown_pick].DateOut = b
+			this.state.book[this.state.dropdown_pick].NoDays =  noOfDays
 				
 				this.setState({
             endDate: date
-        });
-    	}
+				});
+    	}else{
+				this.setState({
+					errorPanel: true,
+					errorContent: "Date out cannot be less than date in"
+				})
+			}
     }
 
 	popBooking(){
@@ -288,7 +304,10 @@ export default class Booking extends React.Component {
 						/>
 					</div>
 				</div>
-	
+			
+			{
+				this.state.errorPanel && <div><h3>{this.state.errorContent}</h3></div>
+			}
 			
 			<div className = "box">
 					<b>Client Name</b><input disabled type = "text" value = {`${book[dropdown_pick].FirstName} ${book[dropdown_pick].LastName}`} />
