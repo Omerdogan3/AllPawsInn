@@ -42,13 +42,13 @@ export default class Help extends React.Component {
 					<hr></hr>
 					<b>Animal Details:</b> <span>Search Client or Dog Name <b>>></b> Click Full Profile on Animal Details</span>
 				</div>
-				<br></br>
+				<br/>
 				<div className = "box" id = "Help">
 					<h4>Troubleshooting</h4>
 					<hr></hr>
 					<b>No data shows up on the screen:</b> <span>Wait for 10 seconds, if nothing shows up refresh the program</span>
 				</div>
-				<br></br>
+				<br/>
 				<div className = "box" id = "Help">
 					<h4>Booking Colour Codes</h4>
 					<hr></hr>
@@ -60,7 +60,7 @@ export default class Help extends React.Component {
 					<hr></hr>
 					<b>Grey:</b> <span>No status (Error)</span>
 				</div>
-				<br></br>
+				<br/>
 					<div className = "box" id = "Help">
 					<h4>Title Bar Colour Codes</h4>
 					<hr></hr>
@@ -72,7 +72,7 @@ export default class Help extends React.Component {
 					<hr></hr>
 					<b>Violet:</b> <span>Refresh</span>
 				</div>
-				<br></br>
+				<br/>
 				<div className = "box" id = "Help">
 					<h4>Keep In Mind</h4>
 					<hr></hr>

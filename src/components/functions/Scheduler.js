@@ -27,7 +27,7 @@ export default class Report extends React.Component {
     if (this.props.dogs){
       return  (
         <div className = "box cal">
-        <h3>Scheduler</h3><br></br>
+        <h3>Scheduler</h3><br/>
         <table className = "table table-hover">
           <tbody>
              <tr>

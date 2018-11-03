@@ -38,7 +38,7 @@ export default class Print extends React.Component {
 					        <th>{current.AnimalName}</th>
 					      </tr>
 					      </table>
-					      <br></br>
+					      <br/>
 					      <table>
 					      <tr>
 					        <th className="key">Animal Type:</th>
@@ -61,7 +61,7 @@ export default class Print extends React.Component {
 					        <th>{current.Age}</th>
 					      </tr>
 					    </table>
-					    <br></br>
+					    <br/>
 					    <table>
 					      <tr>
 					        <th className="key">DateIn:</th>
@@ -72,7 +72,7 @@ export default class Print extends React.Component {
 					        <th>{current.DateOut.toString()}</th>
 					      </tr>
 					    </table>
-					    <br></br>
+					    <br/>
 					    <table>
 					      <tr>
 					        <th className="key">Notes:</th>

@@ -140,106 +140,106 @@ export default class ClientProfile extends React.Component {
 				<div className = "box cal">
 				<h3>Client Details</h3><button className = "profileButton" onClick = {this.newDog}>+Dog</button>
 				<form onSubmit = {this.handleSubmit}>
-					<br></br>
+					<br/>
 					<div className = "box">
 						<div className="row">
 							<div className="col-sm-8"><h6>Last Name:</h6><input name = "LastName" type = "text" placeholder = "Edit LastName" defaultValue = {this.props.animal[0].LastName}/></div>
-						</div><br></br>
+						</div><br/>
 						<div className="row">
 							<div className="col-sm-4"><h6>First Name:</h6><input name = "FirstName" type = "text" placeholder = "Edit FirstName" defaultValue = {this.props.animal[0].FirstName}/> </div>
 
-						</div><br></br>
+						</div><br/>
 						<div className="row">
 							<div className="col-sm-4"><h6>Partner Name:</h6><input name = "PartnerName" type = "text" placeholder = "Edit PartnerName" defaultValue = {this.props.animal[0].PartnerName}/> </div>
 
-						</div><br></br>
+						</div><br/>
 						<div className="row">
-							<div className="col-sm-4">	<h6>Address:</h6><input name = "Address" type = "text" placeholder = "Edit Address" defaultValue = {!Array.isArray(this.props.animal[0].Address1) ? this.props.animal[0].Address1 : this.props.animal[0].Address1[1]} />  <br></br></div>
-						</div><br></br>
+							<div className="col-sm-4">	<h6>Address:</h6><input name = "Address" type = "text" placeholder = "Edit Address" defaultValue = {!Array.isArray(this.props.animal[0].Address1) ? this.props.animal[0].Address1 : this.props.animal[0].Address1[1]} />  <br/></div>
+						</div><br/>
 						<div className="row">
-							<div className="col-sm-4"> <h6>Town/City:</h6><input name = "Town" type = "text" placeholder = "Edit City" defaultValue = {this.props.animal[0].Address3}/>  <br></br></div>
-						</div><br></br>
+							<div className="col-sm-4"> <h6>Town/City:</h6><input name = "Town" type = "text" placeholder = "Edit City" defaultValue = {this.props.animal[0].Address3}/>  <br/></div>
+						</div><br/>
 						<div className="row">
 							<div className="col-sm-4"> <h6>Region/State:</h6> <input name = "Region" type = "text" placeholder = "Edit State" defaultValue = {this.props.animal[0].Region}/> </div>
 
-						</div><br></br>
+						</div><br/>
 						<div className="row">
 							<div className="col-sm-4"> <h6>PostcodeZIP:</h6><input name = "PostcodeZIP" type = "text" placeholder = "Edit PostcodeZIP" defaultValue = {this.props.animal[0].PostcodeZIP[1]}/></div>
-						</div><br></br>
+						</div><br/>
 
 						<div className="row">
 							<div className="col-sm-4"> <h6>Country:</h6> <input name = "Country" type = "text" placeholder = "Edit Country" defaultValue = {this.props.animal[0].Country}/> </div>
 
-						</div><br></br>
+						</div><br/>
 						<div className="row">
 							<div className="col-sm-4"> <h6>Tel (home):</h6> <input name = "Tel_home" type = "text" placeholder = "Edit Tel(home)" defaultValue = {this.props.animal[0].TelHome}/></div>
 
-						</div><br></br>
+						</div><br/>
 						<div className="row">
 							<div className="col-sm-4"> <h6>Mobile/Cell:</h6> <input name = "Mobile" type = "text" placeholder = "Edit Mobile" defaultValue = {this.props.animal[0].CellMobile}/></div>
 
-						</div><br></br>
+						</div><br/>
 						<div className="row">
 							<div className="col-sm-4"> <h6>Email:</h6> <input name = "Email" type = "text" placeholder = "Edit Email" defaultValue = {this.props.animal[0].Email}/></div>
 
-						</div><br></br>
+						</div><br/>
 						<div className="row">
 							<div className="col-sm-4"> <h6>Web Contact:</h6><input name = "Web" type = "text" placeholder = "Edit WebContact" defaultValue = {this.props.animal[0].WebContact}/>  </div>
 
-						</div><br></br>
+						</div><br/>
 						<div className="row">
 							<div className="col-sm-4"><h6>Indetification:</h6><input name = "Indetification" type = "text" placeholder = "Edit Indetification" defaultValue = {this.props.animal[0].ClientIdent}/>  </div>
 
-						</div><br></br>
+						</div><br/>
 						<div className="row">
 							<div className="col-sm-4"><h6>Referred By:</h6> <input name = "Referred" type = "text" placeholder = "Edit Referred" defaultValue = {this.props.animal[0].Referred}/> </div>
 
-						</div><br></br>
+						</div><br/>
 						<div className="row">
 							<div className="col-sm-4">Discount: <input name = "Discount" type = "text" placeholder = "Edit Discount" defaultValue = {this.props.animal[0].Discount}/> </div>
 
-						</div><br></br>
+						</div><br/>
 						<div className="row">
 							<div className="col-sm-4"><h6>Notes:</h6><input name = "Notes" type = "text" placeholder = "Edit Notes" defaultValue = {this.props.animal[0].ClientNotes}/> </div>
 
-						</div><br></br>
+						</div><br/>
 
-						</div><br></br>
+						</div><br/>
 
 						<div className = "box">
 							<h4>Veterinary</h4>
 
 							<div className="row">
 								<div className="col-sm-8"><h6>Surgery:</h6><input name = "Surgery" type = "text" placeholder = "Edit Surgery" defaultValue = {this.props.animal[0].PracticeName}/></div>
-							</div><br></br>
+							</div><br/>
 
 							<div className="row">
 								<div className="col-sm-8"><h6>Vetname:</h6><input name = "VetName" type = "text" placeholder = "Edit VetName" defaultValue = {this.props.animal[0].VetName}/></div>
-							</div><br></br>
+							</div><br/>
 
 							<div className="row">
 								<div className="col-sm-8"><h6>Address1:</h6><input name = "Address1" type = "text" placeholder = "Edit Address1" defaultValue ={!Array.isArray(this.props.animal[0].Address1) ? '' : this.props.animal[0].Address1[0]}/></div>
-							</div><br></br>
+							</div><br/>
 
 							<div className="row">
 								<div className="col-sm-8"><h6>Address2:</h6><input name = "Address2" type = "text" placeholder = "Edit Address2" defaultValue ={!Array.isArray(this.props.animal[0].Address2) ? '' : this.props.animal[0].Address2[0]}/></div>
-							</div><br></br>
+							</div><br/>
 
 							<div className="row">
 								<div className="col-sm-8"><h6>Town/City:</h6><input name = "Town" type = "text" placeholder = "Edit Town" defaultValue ={this.props.animal[0].Town}/></div>
-							</div><br></br>
+							</div><br/>
 
 							<div className="row">
 								<div className="col-sm-8"><h6>Region:</h6><input name = "Region" type = "text" placeholder = "Edit Region" defaultValue ={this.props.animal[0].AddRegion}/></div>
-							</div><br></br>
+							</div><br/>
 
 							<div className="row">
 								<div className="col-sm-8"><h6>Postcode:</h6><input name = "Postcode" type = "text" placeholder = "Edit Postcode" defaultValue ={!Array.isArray(this.props.animal[0].PostcodeZIP) ? '' : this.props.animal[0].PostcodeZIP[0]}/></div>
-							</div><br></br>
+							</div><br/>
 
 							<div className="row">
 								<div className="col-sm-8"><h6>Email:</h6><input name = "Email" type = "text" placeholder = "Edit Email" defaultValue ={!Array.isArray(this.props.animal[0].Email) ? '' : this.props.animal[0].Email[0]}/></div>
-							</div><br></br>
+							</div><br/>
 
 						</div>
 						<div className="row">
@@ -248,7 +248,7 @@ export default class ClientProfile extends React.Component {
 						</div>
 					</div>
 					</form>
-					<br></br>
+					<br/>
 
 				</div>
 			);

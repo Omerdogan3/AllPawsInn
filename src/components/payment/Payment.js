@@ -145,45 +145,45 @@ export default class Payment extends React.Component {
 						<h4>Booking</h4>
 						<div className = "box">
 							<div className = "row">
-								<div className="col-sm-6"><b>Animal Name:</b> {this.props.booking.AnimalName !=  null ? this.props.booking.AnimalName : ''}<br></br></div>
-								<div className="col-sm-6"><b>Client Name:</b> {this.props.booking.FirstName} {this.props.booking.LastName}<br></br></div>
+								<div className="col-sm-6"><b>Animal Name:</b> {this.props.booking.AnimalName !=  null ? this.props.booking.AnimalName : ''}<br/></div>
+								<div className="col-sm-6"><b>Client Name:</b> {this.props.booking.FirstName} {this.props.booking.LastName}<br/></div>
 							</div>
 							<div className = "row">
-							<div className="col-sm-6"><b>Kennel ID:</b> {this.props.booking.KennelID}<br></br></div>
-							<div className="col-sm-6"><b>Animal Breed:</b> {this.props.booking.Breed}<br></br></div>
+							<div className="col-sm-6"><b>Kennel ID:</b> {this.props.booking.KennelID}<br/></div>
+							<div className="col-sm-6"><b>Animal Breed:</b> {this.props.booking.Breed}<br/></div>
 							</div>
 							<div className = "row">
-							<div className="col-sm-6"><b>Animal Size:</b> {this.props.booking.Size}<br></br></div>
-							<div className="col-sm-6"><b>Days:</b> {this.props.booking.NoDays}<br></br></div>
+							<div className="col-sm-6"><b>Animal Size:</b> {this.props.booking.Size}<br/></div>
+							<div className="col-sm-6"><b>Days:</b> {this.props.booking.NoDays}<br/></div>
 							</div>
 							<div className = "row">
-							<div className="col-sm-6"><b>Date In:</b> {this.props.booking.DateIn.toString()}<br></br></div>
-							<div className="col-sm-6"><b>Date Out:</b> {this.props.booking.DateOut.toString()}<br></br></div>
+							<div className="col-sm-6"><b>Date In:</b> {this.props.booking.DateIn.toString()}<br/></div>
+							<div className="col-sm-6"><b>Date Out:</b> {this.props.booking.DateOut.toString()}<br/></div>
 							</div>
 						</div>
-						<br></br>
+						<br/>
 						<div className = "box">
 							<div className = "row">
-								<div className="col-sm-6"><b>Boarding Rate: $ </b>{this.props.booking.BoardingRate !=  null ? this.props.booking.BoardingRate : ''}<br></br></div>
-								<div className="col-sm-6"><b>DayCare Rate: $ </b>{this.props.booking.DayCareRate}<br></br></div>
+								<div className="col-sm-6"><b>Boarding Rate: $ </b>{this.props.booking.BoardingRate !=  null ? this.props.booking.BoardingRate : ''}<br/></div>
+								<div className="col-sm-6"><b>DayCare Rate: $ </b>{this.props.booking.DayCareRate}<br/></div>
 							</div>
 							<hr></hr>
 							<div className = "row">
-								<div className="col-sm-6"><b>Sub Total: $ </b>{subToPay}<br></br></div>
-								<div className="col-sm-6"><b>Discount: % </b>{!Array.isArray(this.props.booking.Discount) ?  this.props.booking.Discount : this.props.booking.Discount[0]}<br></br></div>
+								<div className="col-sm-6"><b>Sub Total: $ </b>{subToPay}<br/></div>
+								<div className="col-sm-6"><b>Discount: % </b>{!Array.isArray(this.props.booking.Discount) ?  this.props.booking.Discount : this.props.booking.Discount[0]}<br/></div>
 							</div>
 							<hr></hr>
 							<div className = "row">
-								<div className="col-sm-6"><b>Net Booking Charges   $</b>{bookingChargesToPay}<br></br></div>
-								<div className="col-sm-6"><b>Other Goods: $ </b><input name = "others" type = "text"  onChange = {this.handleChange}/><br></br></div>
+								<div className="col-sm-6"><b>Net Booking Charges   $</b>{bookingChargesToPay}<br/></div>
+								<div className="col-sm-6"><b>Other Goods: $ </b><input name = "others" type = "text"  onChange = {this.handleChange}/><br/></div>
 							</div>
 							<hr></hr>
 							<div className = "row">
-								<div className="col-sm-6"><b>NY State Tax   $</b><input  disabled name = "tax" type = "text" value = {taxToPay}/><br></br></div>
-								<div className="col-sm-6"><b>Total To Pay   $</b><input  disabled name = "total" type = "text" value = {totalToPay}/><br></br></div>
+								<div className="col-sm-6"><b>NY State Tax   $</b><input  disabled name = "tax" type = "text" value = {taxToPay}/><br/></div>
+								<div className="col-sm-6"><b>Total To Pay   $</b><input  disabled name = "total" type = "text" value = {totalToPay}/><br/></div>
 							</div>
 						</div>
-						<br></br>
+						<br/>
 						<button className = "profileButton" onClick = {this.handleSubmit}> Take Payment </button>
 						<span className="print"><button className = "profileButton" onClick = {this.handlePrintSubmit}> Print </button></span>
 					</form>

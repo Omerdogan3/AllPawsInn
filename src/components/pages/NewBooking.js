@@ -224,73 +224,73 @@ export default class NewBooking extends React.Component {
 		//calendar no hour input atm
 		return (
 			<div className = "box cal">
-				<h3>New Client</h3><br></br>
+				<h3>New Client</h3><br/>
 				<form onSubmit = {this.handleSubmit}>
 					<b><h4>Client</h4></b>
 					<div className = "box">
 						<div className="row">
-							<div className="col-sm-6"><b>First Name *</b><input name = "FirstName" type = "text"/><br></br></div>
-							<div className="col-sm-6"><b>Last Name *</b><input name = "LastName" type = "text"/><br></br></div>
+							<div className="col-sm-6"><b>First Name *</b><input name = "FirstName" type = "text"/><br/></div>
+							<div className="col-sm-6"><b>Last Name *</b><input name = "LastName" type = "text"/><br/></div>
 						</div>
 						<div className="row">
-							<div className="col-sm-6"><b>Address *</b><input name = "Address1" type = "text" /><br></br></div>
-							<div className="col-sm-6"><b>Email *</b><input name = "Email" type = "text"/><br></br></div>
+							<div className="col-sm-6"><b>Address *</b><input name = "Address1" type = "text" /><br/></div>
+							<div className="col-sm-6"><b>Email *</b><input name = "Email" type = "text"/><br/></div>
 						</div>
 						<div className="row">
-							<div className="col-sm-6"><b>Postcode ZIP</b><input name = "PostcodeZIP" type = "text"/><br></br></div>
-							<div className="col-sm-6"><b>Contact(Home)</b><input name = "TelHome" type = "text"/><br></br></div>
+							<div className="col-sm-6"><b>Postcode ZIP</b><input name = "PostcodeZIP" type = "text"/><br/></div>
+							<div className="col-sm-6"><b>Contact(Home)</b><input name = "TelHome" type = "text"/><br/></div>
 						</div>
 						<div className="row">
-							<div className="col-sm-6"><b>Contact(Work)</b><input name = "TelWork" type = "text"/><br></br></div>
+							<div className="col-sm-6"><b>Contact(Work)</b><input name = "TelWork" type = "text"/><br/></div>
 							<div className="col-sm-6"><b>Allow Mailings</b>
 							<select name = "Mailings">
 							<option value = "Yes">Yes</option>
 							<option value = "No">No</option>
 							</select>
 						</div>
-						<div className="col-sm-6"><b>Town</b><input name = "town" type = "text" /><br></br></div>
+						<div className="col-sm-6"><b>Town</b><input name = "town" type = "text" /><br/></div>
 					</div>
 				</div>
 				<b><h4>Animal</h4></b>
 				<div className = "box">
 					<div className="row">
-		  			<div className="col-sm-6"><b>Animal Name *</b><input name = "animal_name" type = "text"/><br></br></div>
-			  		<div className="col-sm-6"><b>Animal Breed *</b><input name = "type" type = "text"/><br></br></div>
+		  			<div className="col-sm-6"><b>Animal Name *</b><input name = "animal_name" type = "text"/><br/></div>
+			  		<div className="col-sm-6"><b>Animal Breed *</b><input name = "type" type = "text"/><br/></div>
 					</div>
 					<div className="row">
-						<div className="col-sm-6"><b>Animal Sex</b><input name = "sex" type = "text"/><br></br></div>
-						<div className="col-sm-6"><b>Kennel Unit</b> <input name = "kennel_unit" type = "text"/><br></br></div>
+						<div className="col-sm-6"><b>Animal Sex</b><input name = "sex" type = "text"/><br/></div>
+						<div className="col-sm-6"><b>Kennel Unit</b> <input name = "kennel_unit" type = "text"/><br/></div>
 					</div>
 					<div className="row">
-						<div className="col-sm-6"><b>Food Type</b><input name = "food_type" type = "text"/><br></br></div>
-						<div className="col-sm-6"><b>Food Frequency</b> <input name = "food_freq" type = "text"/><br></br></div>
+						<div className="col-sm-6"><b>Food Type</b><input name = "food_type" type = "text"/><br/></div>
+						<div className="col-sm-6"><b>Food Frequency</b> <input name = "food_freq" type = "text"/><br/></div>
 					</div>
 
 					<div className="row">
-						<div className="col-sm-6"><b>Food Amount</b><input name = "food_amount" type = "text"/><br></br></div>
-						<div className="col-sm-6"><b>MedicalDetails</b> <input name = "medical_details" type = "text"/><br></br></div>
+						<div className="col-sm-6"><b>Food Amount</b><input name = "food_amount" type = "text"/><br/></div>
+						<div className="col-sm-6"><b>MedicalDetails</b> <input name = "medical_details" type = "text"/><br/></div>
 					</div>
 					<div className="row">
-						<div className="col-sm-6"><b>Discount</b><input name = "discount" type = "text" /><br></br></div>
-						<div className="col-sm-6"><b>Age</b><input name = "age" type = "number" /><br></br></div>
+						<div className="col-sm-6"><b>Discount</b><input name = "discount" type = "text" /><br/></div>
+						<div className="col-sm-6"><b>Age</b><input name = "age" type = "number" /><br/></div>
 					</div>
 				</div>
 				<b><h4>Vet Details</h4></b>
 				<div className = "box">
 					<div className="row">
-	  				<div className="col-sm-6"><b>Practice Name *</b><input name = "practice_name" type = "text"/><br></br></div>
-	  				<div className="col-sm-6"><b>Vet Name *</b><input name = "vet_name" type = "text"/><br></br></div>
+	  				<div className="col-sm-6"><b>Practice Name *</b><input name = "practice_name" type = "text"/><br/></div>
+	  				<div className="col-sm-6"><b>Vet Name *</b><input name = "vet_name" type = "text"/><br/></div>
 					</div>
 					<div className="row">
-						<div className="col-sm-6"><b>Contact No</b><input name = "contact" type = "text"/><br></br></div>
-						<div className="col-sm-6"><b>Address</b> <input name = "contact" type = "text"/><br></br></div>
+						<div className="col-sm-6"><b>Contact No</b><input name = "contact" type = "text"/><br/></div>
+						<div className="col-sm-6"><b>Address</b> <input name = "contact" type = "text"/><br/></div>
 					</div>
 					<div className="row">
 						<div className="col-sm-6"><b>Town</b><input name = "town" type = "text"/></div>
-						<div className="col-sm-6"><b>Email</b><input name = "email" type = "text"/><br></br></div>
+						<div className="col-sm-6"><b>Email</b><input name = "email" type = "text"/><br/></div>
 					</div>
 				</div>
-				<br></br>
+				<br/>
 
 				{
 					this.state.fillRequired && <div><p>Please Fill All Required Places</p></div> 

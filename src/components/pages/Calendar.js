@@ -169,13 +169,13 @@ export default class Calendar extends React.Component {
 						</select>
 
 						<button className = "dateButton" onClick = {this.currentWeek}> This Week</button>
-						<br></br>
+						<br/>
 					</div>
 					{panel}
 				</div>
 			);
 		}
 		else
-			 return (<div className="box cal"><br></br></div>);
+			 return (<div className="box cal"><br/></div>);
 	}
 }

@@ -122,30 +122,30 @@ export default class Report extends React.Component {
     if (this.props.bookings){
 			return  (
 				<div className = "box cal">
-					<h3>Basic Stats</h3><br></br>
+					<h3>Basic Stats</h3><br/>
           <div className="box">
-            <h4>Kennel Units</h4><br></br>
-            Total number of units:  86<br></br>
-            Current number of occupants: {this.state.bookings.length}<br></br>
-            % of units Occupied:  78<br></br>
+            <h4>Kennel Units</h4><br/>
+            Total number of units:  86<br/>
+            Current number of occupants: {this.state.bookings.length}<br/>
+            % of units Occupied:  78<br/>
           </div>
-          <br></br>
+          <br/>
           <div className="box">
-            <h4>Booking</h4><br></br>
-            Number of Bookings Started over previous year:  {filterBookingsLessYear(this.state.bookings)}<br></br>
-            Total Number of Future Bookings:  {filterFutureBookings(this.state.bookings)}<br></br>
-            Bookings Expected to Start This Week:  {filterFutureWeekBookings(this.state.bookings)}<br></br>
-            Compare with a year ago:  {filterFutureWeekCompareBookings(this.state.bookings)}<br></br>
-            Bookings Expected to Start This Month  {filterThisMonthBookings(this.state.bookings)}<br></br>
-            Compare with a year ago:  {filterThisMonthCompareBookings(this.state.bookings)}<br></br>
-            Bookings Expected to Start Next Month:{filterNextMonthBookings(this.state.bookings)}<br></br>
-            Compare with a year ago:  {filterNextMonthCompareBookings(this.state.bookings)}<br></br>
+            <h4>Booking</h4><br/>
+            Number of Bookings Started over previous year:  {filterBookingsLessYear(this.state.bookings)}<br/>
+            Total Number of Future Bookings:  {filterFutureBookings(this.state.bookings)}<br/>
+            Bookings Expected to Start This Week:  {filterFutureWeekBookings(this.state.bookings)}<br/>
+            Compare with a year ago:  {filterFutureWeekCompareBookings(this.state.bookings)}<br/>
+            Bookings Expected to Start This Month  {filterThisMonthBookings(this.state.bookings)}<br/>
+            Compare with a year ago:  {filterThisMonthCompareBookings(this.state.bookings)}<br/>
+            Bookings Expected to Start Next Month:{filterNextMonthBookings(this.state.bookings)}<br/>
+            Compare with a year ago:  {filterNextMonthCompareBookings(this.state.bookings)}<br/>
           </div>
-          <br></br>
+          <br/>
           <div className="box">
-            <h4>Database</h4><br></br>
-            Number of Clients in database: 1398<br></br>
-            Number of Animals in database: 1976<br></br>
+            <h4>Database</h4><br/>
+            Number of Clients in database: 1398<br/>
+            Number of Animals in database: 1976<br/>
           </div>
 				</div>
 			);

@@ -281,7 +281,7 @@ export default class Booking extends React.Component {
 				<h3>Booking</h3>
 				<select onChange = {this.dropdownSelected} label="Multiple Select" multiple>
 					{dropdown}
-				</select><br></br>
+				</select><br/>
 				
 				<div className="dateSelector">
 					<div id="dateIn">
@@ -308,14 +308,14 @@ export default class Booking extends React.Component {
 			
 			<div className = "box">
 					<b>Client Name</b><input disabled type = "text" value = {`${book[dropdown_pick].FirstName} ${book[dropdown_pick].LastName}`} />
-					<button className = "bookingbutton" onClick = {this.popBooking}> X </button><br></br>
-					<b>Animal Name</b><input disabled type = "text" value = {book[dropdown_pick].AnimalName}/><br></br>
-					<b>Animal Breed</b><input disabled type = "text" value = {book[dropdown_pick].Breed}/><br></br>
+					<button className = "bookingbutton" onClick = {this.popBooking}> X </button><br/>
+					<b>Animal Name</b><input disabled type = "text" value = {book[dropdown_pick].AnimalName}/><br/>
+					<b>Animal Breed</b><input disabled type = "text" value = {book[dropdown_pick].Breed}/><br/>
 					
 					
-					<b>Days</b><input disabled name = "NoDays" type = "text" value = {book[dropdown_pick].NoDays}/><br></br>
-					<b>Discount Rate   %</b><input disabled name = "Discount" type = "text" value = {book[dropdown_pick].Discount}/><br></br>
-					<b>Boarding Rate   $</b><input name = "BoardingRate" type = "text" value = {book[dropdown_pick].BoardingRate} onChange = {this.handleChange}/><br></br>
+					<b>Days</b><input disabled name = "NoDays" type = "text" value = {book[dropdown_pick].NoDays}/><br/>
+					<b>Discount Rate   %</b><input disabled name = "Discount" type = "text" value = {book[dropdown_pick].Discount}/><br/>
+					<div><b>Boarding Rate   $</b><input name = "BoardingRate" type = "text" value = {book[dropdown_pick].BoardingRate} onChange = {this.handleChange}/><br/></div>
 					<div id="submitInput">
 						<button className = "profileButton" onClick = {this.handleSubmit}> Submit </button>
 					</div>
