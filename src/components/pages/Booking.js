@@ -110,30 +110,27 @@ export default class Booking extends React.Component {
 			this.setState({
 				errorPanel: false
 			})
-
 			if(a.diff(b) <= 0){
 				this.state.book[this.state.dropdown_pick].DateIn = a
-				this.state.book[this.state.dropdown_pick].NoDays =  (Math.ceil((this.state.book[this.state.dropdown_pick].DateOut-this.state.book[this.state.dropdown_pick].DateIn)/oneDay)) || 1
+				this.state.book[this.state.dropdown_pick].NoDays = noOfDays
 				this.setState({
 					startDate: date
 				});
 			}
 		}
-
-
-
     }
 
     handleEndDateChange(date) {
 			var a = moment(date)
-			var b = moment(this.state.endDate)
+			var b = moment(this.state.startDate)
 			var noOfDays = a.diff(new Date(),'days')
-    	if(a.diff(b) > 0){
+			console.log(a.diff(b))
+    	if(a.diff(b,'days') >= 0){
 			this.state.book[this.state.dropdown_pick].DateOut = b
 			this.state.book[this.state.dropdown_pick].NoDays =  noOfDays
-				
 				this.setState({
-            endDate: date
+					endDate: date,
+					errorPanel: false
 				});
     	}else{
 				this.setState({
