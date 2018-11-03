@@ -2,9 +2,11 @@
 // validate user inputs before querying
 // replace arbitrary kennel number
 'use babel';
+import 'react-dates/initialize';
 
 import React, { Component } from 'react';
 import DatePicker from 'react-datepicker';
+import {SingleDatePicker} from 'react-dates';
 import moment from 'moment';
 import Calendar from 'react-input-calendar';
 const booking_lib = require('../../js/bookinglib');
@@ -43,7 +45,9 @@ export default class Booking extends React.Component {
 			animal: this.props.animal,
 			book : [],
 			startDate: moment(),
-			endDate: moment().add(1,'weeks').startOf('isoWeek')
+			endDate: moment().add(1,'weeks').startOf('isoWeek'),
+			date: moment(),
+      focused: null
 		}
 
 		for(let i = 0; i < this.props.animal.length; i++){
@@ -70,7 +74,19 @@ export default class Booking extends React.Component {
 		this.dropdownSelected = this.dropdownSelected.bind(this)
 		this.handleStartDateChange = this.handleStartDateChange.bind(this)
 		this.handleEndDateChange = this.handleEndDateChange.bind(this)
+		this.onFocusChange = this.onFocusChange.bind(this);
+		this.onDateChange = this.onDateChange.bind(this);
+
 	}
+
+	onFocusChange() {
+    // Force the focused states to always be truthy so that date is always selectable
+    this.setState({ focused: true });
+	}
+	
+	onDateChange(date) {
+    this.setState({ date });
+  }
 
 	handleStartDateChange(date) {
 		if(date._d <= this.state.endDate){
@@ -217,7 +233,7 @@ export default class Booking extends React.Component {
 		//value wont change when a new reservation is prompted while already on the booking pag
 		let dropdown = [];
 		for (let i = 0; i < book.length; i++) {
-			dropdown.push(<option key={i} value={i}>{`${book[i].FirstName} ${book[i].LastName} - ${book[i].AnimalName}`}</option>);
+		    dropdown.push(<option key={i} value={i}>{`${book[i].FirstName} ${book[i].LastName} - ${book[i].AnimalName}`}</option>);
 		}
 
 		return(
@@ -227,19 +243,31 @@ export default class Booking extends React.Component {
 					{dropdown}
 				</select><br></br>
 				<b>Date In</b><br></br>
+				
 				<div id="datePicker">
-					<DatePicker
-			            selected={this.state.startDate}
-			            onChange={this.handleStartDateChange}
-			       />
-			       </div>
-			       <br></br>
-				<b>Date Out</b><br></br>
-				<div id="datePicker">
-				<DatePicker
-			            selected={this.state.endDate}
-			            onChange={this.handleEndDateChange}
-			        />
+					{
+				// 		<DatePicker
+			  //           selected={this.state.startDate}
+			  //           onChange={this.handleStartDateChange}
+			  //      />
+			  //      </div>
+			  //      <br></br>
+				// <b>Date Out</b><br></br>
+				// <div id="datePicker">
+				// <DatePicker
+			  //           selected={this.state.endDate}
+			  //           onChange={this.handleEndDateChange}
+				// 			/>
+
+				<SingleDatePicker
+					date={this.state.date}
+					onDateChange={this.onDateChange}
+					onFocusChange={this.onFocusChange}
+					focused = {this.state.focused}
+				/>
+
+
+						}
 			        </div>
 				<div className = "box">
 					<b>Client Name</b><input disabled type = "text" value = {`${book[dropdown_pick].FirstName} ${book[dropdown_pick].LastName}`} />

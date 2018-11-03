@@ -8,9 +8,7 @@ List of things to be fixed, or implemented on the application:
    * Adding a basic stats page (an example can be found in the Screenshots/Old Software folder)
     
    * Adding Alert/Notification boxes to the main screen (an example can be found in the Screenshots/Prototypes folder)
-    
-   * Making a better design for pages like booking, new booking, and payment
-    
+        
    * Adding an admin panel where user can change default values like DaycareRate, BoardingRate, Discount, etc.
    
    * Adding a component for printing multiple pages of scheduling info (kennel id, food, medical cond., kennel size, etc.) with one click (the user shouldn't have to select each dog seperately)
@@ -54,5 +52,6 @@ List of things to be fixed, or implemented on the application:
   * Help page should be updated after each resolved issue
   * Adding a booking removal feature
   * Making the boarding reservations printable
+  * Making a better design for pages like booking, new booking, and payment
 
 

@@ -134,6 +134,7 @@ export default class Main extends React.Component {
 	}
 
 	grab_animal(animal){
+		console.log(animal)
 		this.setState({
 			animal : animal,
 			screen : "booking"
