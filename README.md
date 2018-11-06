@@ -26,9 +26,7 @@ List of things to be fixed, or implemented on the application:
    * Adding the ability to make recurring bookings (e.g. "make a booking for Max Deus which occurs every Wednesday")
    
    * Adding new features to the payment page like take no tax, or take down payment (should be talked with All Paws Inn)
-   
-   * Input fields should be validated, and sanitized in order to prevent attacks like SQL Injection, and XSS (Cross-Site Scripting)
-   
+      
    * Boarding and Daycare bookings should be managed in different database tables. Seperate the dbo.BookingObjects table, and create a table for each of them.
    
    * Adding note boxes for animal and food components (where user can enter specific notes for each dog and it's food) on New Client page
@@ -53,5 +51,8 @@ List of things to be fixed, or implemented on the application:
   * Adding a dropdown to the payment page which lets the user to select extra items to add to the cost (e.g. "nails, grooming,              etc.")
     
   * Data cleansing (detecting and correcting corrupt or inaccurate records in the database)
+  
+  * Input fields should be validated, and sanitized in order to prevent attacks like SQL Injection, and XSS (Cross-Site Scripting)
+
 
 
