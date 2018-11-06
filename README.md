@@ -10,9 +10,7 @@ List of things to be fixed, or implemented on the application:
    * Adding an admin panel where user can change default values like DaycareRate, BoardingRate, Discount, etc.
    
    * Adding a component for printing multiple pages of scheduling info (kennel id, food, medical cond., kennel size, etc.) with one click (the user shouldn't have to select each dog seperately)
-   
-   * Data cleansing (detecting and correcting corrupt or inaccurate records in the database)
-  
+     
    * Solving the click glitch that occurs on the grid view of the daycare screen (the user has to click twice to make a reservation for a new day)
    
    * Adding finance management pages (this topic should be discussed with All Paws Inn and requirements should be clarified)
@@ -54,4 +52,6 @@ List of things to be fixed, or implemented on the application:
   
   * Adding a dropdown to the payment page which lets the user to select extra items to add to the cost (e.g. "nails, grooming,              etc.")
     
+  * Data cleansing (detecting and correcting corrupt or inaccurate records in the database)
+
 
