@@ -2,14 +2,10 @@
 List of things to be fixed, or implemented on the application:
    * Making the booking bars in the grid view of the boarding screen, interactable (e.g. "right click should open a dropdown which
      lets the user to select an action like check-in/out, or edit") (an example can be found in the Screenshots/Prototypes folder)
-      
-   * Adding a dropdown to the payment page which lets the user to select extra items to add to the cost (e.g. "nails, grooming,              etc.")
-    
+
    * Adding a basic stats page (an example can be found in the Screenshots/Old Software folder)
     
    * Adding Alert/Notification boxes to the main screen (an example can be found in the Screenshots/Prototypes folder)
-    
-   * Making a better design for pages like booking, new booking, and payment
     
    * Adding an admin panel where user can change default values like DaycareRate, BoardingRate, Discount, etc.
    
@@ -37,16 +33,25 @@ List of things to be fixed, or implemented on the application:
    
    * Boarding and Daycare bookings should be managed in different database tables. Seperate the dbo.BookingObjects table, and create a table for each of them.
    
-   * Adding a booking removal feature
-   
    * Adding note boxes for animal and food components (where user can enter specific notes for each dog and it's food) on New Client page
    
    * Making the Animal Details (called "Full Profile" in the program) editable (should be talked with All Paws Inn first)
    
-   * Adding 'Town' input field to New Client, and 'Age' to Animal Details and Add Dog pages
-   
-   * Making the boarding reservations printable
-   
    * Adding Alerts/Notifications side screens to the home page (screenshots can be found in the Screenshots/Prototypes folder)
 
-   * Help page should be updated after each resolved issue
+
+## Done
+
+  * Adding 'Town' input field to New Client, and 'Age' to Animal Details and Add Dog pages
+  
+  * Adding a booking removal feature
+  
+  * Making the boarding reservations printable
+  
+  * Help page should be updated after each resolved issue
+  
+  * Making a better design for pages like booking, new booking, and payment
+  
+  * Adding a dropdown to the payment page which lets the user to select extra items to add to the cost (e.g. "nails, grooming,              etc.")
+    
+
