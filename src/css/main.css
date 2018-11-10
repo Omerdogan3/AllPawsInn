@@ -158,9 +158,16 @@ h6 {
   padding: 20px;
 }
 
+.adminBox {
+  color: black;
+  background: #FAFAFA;
+  border: 1px solid #ADADAD;
+  box-shadow: 0 2px 4px 0 rgba(0,0,0,0.50);
+  padding: 20px;
+}
+
 .box input{
   left: 200px;
-  position: absolute;
 }
 
 .animalDet {
