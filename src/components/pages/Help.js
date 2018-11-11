@@ -41,6 +41,8 @@ export default class Help extends React.Component {
 					<b>Client Details:</b> <span>Search Client or Dog Name <b>>></b> Click Client Profile on Animal Details</span>
 					<hr/>
 					<b>Animal Details:</b> <span>Search Client or Dog Name <b>>></b> Click Full Profile on Animal Details</span>
+					<hr/>
+					<b>Admin Panel:</b> <span>default values like DaycareRate, BoardingRate, Discount, etc.<b>>></b> No need to submit. All of the changes directly updated in database.</span>
 				</div>
 				<br/>
 				<div className = "box" id = "Help">

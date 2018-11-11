@@ -37,6 +37,7 @@
     "react-infinite-calendar": "^2.3.1",
     "react-input-calendar": "^0.5.2",
     "react-selectable": "^2.0.1",
+    "react-super-responsive-table": "^4.3.4",
     "remote": "^0.2.6"
   }
 }

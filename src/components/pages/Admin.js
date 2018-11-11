@@ -12,18 +12,16 @@ export default class Admin extends React.Component {
 		this.state = {
 			defaultValues: null
 		};
-		// this.handleDiscountChange = this.handleDiscountChange.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
 		this.handleChange = this.handleChange.bind(this);
 	}
 
 	componentDidMount(){
-		sql.close()
+		// sql.close()
 		this.getDefaultValues()
 	}
 
 	async getDefaultValues(){
-		// await sql.close()
+		await sql.close()
 		let pool = await sql.connect(sqlConfig)
 		let result = await pool.request().query("SELECT * from dbo.AnimalCharges")
 		await sql.close()

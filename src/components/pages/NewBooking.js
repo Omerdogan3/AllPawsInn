@@ -7,6 +7,8 @@ const sql = require('mssql')
 
 import React, { Component } from 'react';
 import Calendar from 'react-input-calendar'
+import { Table, Tbody, Tr, Th } from 'react-super-responsive-table'
+
 const booking_lib = require('../../js/bookinglib')
 
 function create_date(datestr){
@@ -224,76 +226,112 @@ export default class NewBooking extends React.Component {
 		//calendar no hour input atm
 		return (
 			<div className = "box cal">
-				<h3>New Client</h3><br/>
+				{
+					// <h2>New Client</h2><br/>
+				}
 				<form onSubmit = {this.handleSubmit}>
-					<b><h4>Client</h4></b>
+					<b><h3>Client</h3></b>
 					<div className = "box">
-						<div className="row">
-							<div className="col-sm-6"><b>First Name *</b><input name = "FirstName" type = "text"/><br/></div>
-							<div className="col-sm-6"><b>Last Name *</b><input name = "LastName" type = "text"/><br/></div>
-						</div>
-						<div className="row">
-							<div className="col-sm-6"><b>Address *</b><input name = "Address1" type = "text" /><br/></div>
-							<div className="col-sm-6"><b>Email *</b><input name = "Email" type = "text"/><br/></div>
-						</div>
-						<div className="row">
-							<div className="col-sm-6"><b>Postcode ZIP</b><input name = "PostcodeZIP" type = "text"/><br/></div>
-							<div className="col-sm-6"><b>Contact(Home)</b><input name = "TelHome" type = "text"/><br/></div>
-						</div>
-						<div className="row">
-							<div className="col-sm-6"><b>Contact(Work)</b><input name = "TelWork" type = "text"/><br/></div>
-							<div className="col-sm-6"><b>Allow Mailings</b>
-							<select name = "Mailings">
-							<option value = "Yes">Yes</option>
-							<option value = "No">No</option>
-							</select>
-						</div>
-						<div className="col-sm-6"><b>Town</b><input name = "town" type = "text" /><br/></div>
-					</div>
+					<table className = "table table-hover">
+						<tbody>
+							<tr>
+								<th><b>First Name *</b></th>
+								<th><input name = "FirstName" type = "text"/></th>
+								<th><b>Last Name *</b></th>
+								<th><input name = "LastName" type = "text"/></th>
+								<th><b>Address *</b></th>
+								<th><input name = "Address1" type = "text"/></th>
+							</tr>
+							<tr>
+								<th><b>Email *</b></th>
+								<th><input name = "Email" type = "text"/></th>
+								<th><b>Postcode ZIP</b></th>
+								<th><input name = "PostcodeZIP" type = "text"/></th>
+								<th><b>Contact(Home)</b></th>
+								<th><input name = "TelHome" type = "text"/></th>
+							</tr>
+							<tr>
+								<th><b>Contact(Work)</b></th>
+								<th><input name = "TelWork" type = "text"/></th>
+								<th><b>Allow Mailings</b></th>
+								<th><select name = "Mailings">
+								<option value = "Yes">Yes</option>
+								<option value = "No">No</option>
+								</select></th>
+								<th><b>Town</b></th>
+								<th><input name = "town" type = "text" /></th>
+							</tr>
+						</tbody>
+					</table>
 				</div>
-				<b><h4>Animal</h4></b>
-				<div className = "box">
-					<div className="row">
-		  			<div className="col-sm-6"><b>Animal Name *</b><input name = "animal_name" type = "text"/><br/></div>
-			  		<div className="col-sm-6"><b>Animal Breed *</b><input name = "type" type = "text"/><br/></div>
-					</div>
-					<div className="row">
-						<div className="col-sm-6"><b>Animal Sex</b><input name = "sex" type = "text"/><br/></div>
-						<div className="col-sm-6"><b>Kennel Unit</b> <input name = "kennel_unit" type = "text"/><br/></div>
-					</div>
-					<div className="row">
-						<div className="col-sm-6"><b>Food Type</b><input name = "food_type" type = "text"/><br/></div>
-						<div className="col-sm-6"><b>Food Frequency</b> <input name = "food_freq" type = "text"/><br/></div>
-					</div>
 
-					<div className="row">
-						<div className="col-sm-6"><b>Food Amount</b><input name = "food_amount" type = "text"/><br/></div>
-						<div className="col-sm-6"><b>MedicalDetails</b> <input name = "medical_details" type = "text"/><br/></div>
-					</div>
-					<div className="row">
-						<div className="col-sm-6"><b>Discount</b><input name = "discount" type = "text" /><br/></div>
-						<div className="col-sm-6"><b>Age</b><input name = "age" type = "number" /><br/></div>
-					</div>
-				</div>
-				<b><h4>Vet Details</h4></b>
+				<b><h3>Animal</h3></b>
 				<div className = "box">
-					<div className="row">
-	  				<div className="col-sm-6"><b>Practice Name *</b><input name = "practice_name" type = "text"/><br/></div>
-	  				<div className="col-sm-6"><b>Vet Name *</b><input name = "vet_name" type = "text"/><br/></div>
-					</div>
-					<div className="row">
-						<div className="col-sm-6"><b>Contact No</b><input name = "contact" type = "text"/><br/></div>
-						<div className="col-sm-6"><b>Address</b> <input name = "contact" type = "text"/><br/></div>
-					</div>
-					<div className="row">
-						<div className="col-sm-6"><b>Town</b><input name = "town" type = "text"/></div>
-						<div className="col-sm-6"><b>Email</b><input name = "email" type = "text"/><br/></div>
-					</div>
+					<table className = "table table-hover">
+						<tbody>
+							<tr>
+								<th><b>Animal Name *</b></th>
+								<th><input name = "animal_name" type = "text"/></th>
+								<th><b>Animal Breed *</b></th>
+								<th><input name = "type" type = "text"/></th>
+								<th><b>Animal Sex</b></th>
+								<th><input name = "sex" type = "text"/></th>
+							</tr>
+							<tr>
+								<th><b>Kennel Unit</b></th>
+								<th><input name = "kennel_unit" type = "text"/></th>
+								<th><b>Food Type</b></th>
+								<th><input name = "food_type" type = "text"/></th>
+								<th><b>Food Frequency</b></th>
+								<th><input name = "food_freq" type = "text"/></th>
+							</tr>
+							<tr>
+								<th><b>Food Amount</b></th>
+								<th><input name = "food_amount" type = "text"/></th>
+								<th><b>MedicalDetails</b></th>
+								<th><input name = "medical_details" type = "text"/></th>
+								<th><b>Discount</b></th>
+								<th><input name = "discount" type = "text" /></th>
+							</tr>
+							<tr>
+								<th><b>Age</b></th>
+								<th><input name = "age" type = "number" /></th>
+								<th></th>
+								<th></th>
+								<th></th>
+								<th></th>
+							</tr>
+						</tbody>
+					</table>
+
+				</div>
+				<b><h3>Vet Details</h3></b>
+				<div className = "box">
+				<table className = "table table-hover">
+					<tbody>
+						<tr>
+							<th><b>Practice Name *</b></th>
+							<th><input name = "practice_name" type = "text"/></th>
+							<th><b>Vet Name *</b></th>
+							<th><input name = "vet_name" type = "text"/></th>
+							<th><b>Contact No</b></th>
+							<th><input name = "contact" type = "text"/></th>
+						</tr>
+						<tr>
+							<th><b>Address</b></th>
+							<th><input name = "contact" type = "text"/></th>
+							<th><b>Town</b></th>
+							<th><input name = "town" type = "text"/></th>
+							<th><b>Email</b></th>
+							<th><input name = "email" type = "text"/></th>
+						</tr>
+					</tbody>
+				</table>
 				</div>
 				<br/>
 
 				{
-					this.state.fillRequired && <div><p>Please Fill All Required Places</p></div> 
+					this.state.fillRequired && <div className="alert alert-danger" role="alert"><p>Please Fill All Required Places</p></div> 
 				}
 
 				<div id="submitInput">
